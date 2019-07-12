@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1, 1, auto;
+  width: 75%;
+}
+
+.Button {
+  width: 50%;
+  color: white;
+  background-color: cadetblue;
+  border-radius: 5px;
+  border: 1px, solid,  #282c34;
+  margin: 10px;
+  box-shadow: 0em;
+}
+
+.Refresh {
+  width: 4vw;
+  font-size: 2vw;
+}

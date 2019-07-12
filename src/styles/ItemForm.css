@@ -1,0 +1,12 @@
+.ItemForm {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  width: 100%;
+}  
+
+.ItemForm input {
+  margin: auto;
+  margin-top: 5vh;
+  width: 80%;
+}

@@ -1,0 +1,32 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  height: 75vh;
+}
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  text-decoration: none;
+  color: #ccc;
+  display: block;
+  width: 80vw;
+  text-align: left;
+  margin-bottom: 0.5em;
+  -moz-box-shadow:    0px 3px 5px -6px #ccc;
+  -webkit-box-shadow: 0px 3px 5px -6px #ccc;
+  box-shadow:         0px 3px 5px -6px #ccc;
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+
+}
+ 
+li:last-child {
+  border: none;
+}
+ 
