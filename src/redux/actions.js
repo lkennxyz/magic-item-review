@@ -6,6 +6,7 @@ export const SET_COMPLETED_LIST = 'SET_COMPLETE_LIST';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_ITEM = 'SET_ITEM';
 export const SET_VISIBILITY = 'SET_VISIBILITY';
+export const SET_TYPE = 'SET_TYPE';
 
 const client = new ApolloClient({ uri: '/api' });
 
@@ -27,6 +28,10 @@ export function setVisibility(visible) {
 
 function setItem(item) {
   return { type: SET_ITEM, item };
+}
+
+export function setType(itemType) {
+  return { type: SET_TYPE, itemType };
 }
 
 export function refresh() {
@@ -63,4 +68,9 @@ export function setCompletedList() {
       .catch(err => {
         console.error(err);
       });
+}
+
+export function saveItem(id, item) {
+  return dispatch =>
+    dispatch(setItem(item));
 }

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFistRaised, faShieldAlt, faRing } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import ItemForm from '@components/ItemForm';
 import '@styles/ItemModal.css';
+import ItemType from './ItemType';
 
-function ItemModal({ item, visible, closeModal }) {
-  const [type, setType] = useState(null);
+function ItemModal({ item, visible, type, closeModal, setType, saveItem }) {
   if (!visible)
     return null;
   return (
@@ -17,29 +15,21 @@ function ItemModal({ item, visible, closeModal }) {
         <div className="ButtonRow">
           {
             (type) ? (
-            <ItemForm
-              item={item}
-              type={type}
-            />
+              <ItemForm
+                id={item._id}
+                type={type}
+                closeModal={closeModal}
+                saveItem={saveItem}
+              />
             ) : (
-              <div className="ButtonRow">
-                <button className="ItemButton" onClick={() => setType('Weapon')}>
-                  <FontAwesomeIcon icon={faFistRaised}/>
-                </button>
-                <button className="ItemButton" onClick={() => setType('Armor')}>
-                  <FontAwesomeIcon icon={faShieldAlt}/>
-                </button>
-                <button className="ItemButton" onClick={() => setType('Item')}>
-                  <FontAwesomeIcon icon={faRing}/>
-                </button>
-              </div>
+              <ItemType
+                setType={setType}
+                closeModal={closeModal}
+              />
             )
           }
           
         </div>
-        <button className="Button" onClick={ () => closeModal(false) }>
-          Close
-        </button>
       </div>
     </div>
   );

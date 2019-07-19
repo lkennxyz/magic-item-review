@@ -1,7 +1,6 @@
 export const Weapon = [
   'Description',
   'Name',
-  'Type',
   'Rarity',
   'Weapon Type',
   'Damage Dice Count',
@@ -15,7 +14,6 @@ export const Weapon = [
 export const Armor = [
   'Description',
   'Name',
-  'Type',
   'Rarity',
   'Armor Type',
   'AC Base',
@@ -27,6 +25,5 @@ export const Armor = [
 export const Item = [
   'Description',
   'Name',
-  'Type',
   'Rarity', 
 ]

@@ -1,4 +1,4 @@
-import { SET_COMPLETED_LIST, SET_REVIEW_LIST, SET_FILTER, SET_ITEM, SET_VISIBILITY } from '@redux/actions';
+import { SET_COMPLETED_LIST, SET_REVIEW_LIST, SET_FILTER, SET_ITEM, SET_VISIBILITY, SET_TYPE } from '@redux/actions';
 
 const initialState = {
   reviewList: [],
@@ -6,6 +6,7 @@ const initialState = {
   item: {},
   filter: 'REVIEW',
   visible: false,
+  itemType: null,
 };
 
 export default function reviewApp(state = initialState, action) {
@@ -30,6 +31,10 @@ export default function reviewApp(state = initialState, action) {
       return Object.assign({}, state, {
         visible: action.visible,
       });
+    case SET_TYPE:
+      return Object.assign({}, state, {
+        itemType: action.itemType,
+      })
     default:
       return state;
   }
