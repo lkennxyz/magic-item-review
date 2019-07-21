@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   closeModal: visible => dispatch(setVisibility(visible)),
   setType: itemType => dispatch(setType(itemType)),
-  saveItem: (item, id) => dispatch(saveItem(item, id)),
+  saveItem: (item, id, type) => dispatch(saveItem(item, id, type)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemModal);

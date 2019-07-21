@@ -12,7 +12,7 @@ function ItemModal({ item, visible, type, closeModal, setType, saveItem }) {
         <div className="ModalTitle">
           <h2>{item.description}</h2>
         </div>
-        <div className="ButtonRow">
+        <div className="ModalBody">
           {
             (type) ? (
               <ItemForm

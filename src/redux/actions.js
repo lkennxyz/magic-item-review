@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import { getReview, getCompleted } from '@graphql/Queries';
+import { getReview, getCompleted, saveItemMut, saveWeaponMut, saveArmorMut } from '@graphql/Queries';
 
 export const SET_REVIEW_LIST = 'SET_REVIEW_LIST';
 export const SET_COMPLETED_LIST = 'SET_COMPLETE_LIST';
@@ -70,7 +70,22 @@ export function setCompletedList() {
       });
 }
 
-export function saveItem(id, item) {
-  return dispatch =>
+export function saveItem(id, item, type) {
+  return dispatch => {
     dispatch(setItem(item));
+    console.log(item);
+    const mut = (type === 'Weapon') ? saveWeaponMut({ id, item })
+      : (type === 'Armor') ? saveArmorMut({id, item})
+        : saveItemMut({ id, item });
+    console.log(mut);
+    client.mutate({ mutation: mut })
+      .then(({ data }) => {
+        dispatch(setType(''));
+        dispatch(setItem({}));
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 }

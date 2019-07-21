@@ -8,13 +8,12 @@ function ItemForm({ id, type, closeModal, saveItem }) {
       Item;
   const [item, setItem] = useState({ type: type });
   const handleChange = (i, v) => {
-    console.log(`i: ${i} v: ${v}`);
-    setItem(Object.assign({}, item, { [i]: v }));
+    setItem(Object.assign({}, item, { [i.toLowerCase().replace(new RegExp(' ', 'g'), '_')]: v }));
   }
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      saveItem(id, item);
+      saveItem(id, item, type);
       closeModal(false);
     }
   }
