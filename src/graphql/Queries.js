@@ -48,10 +48,6 @@ export function getItem(id) {
 }
 
 export function saveWeaponMut({ id, item }) {
-  const properties = (item.properties.indexOf(' ') !== -1) ? 
-    item.properties.split(' ') :
-      [item.properties];
-  console.log(properties);
   return gql`
     mutation {
       setWeapon(id: "${id}", item: {
@@ -65,7 +61,7 @@ export function saveWeaponMut({ id, item }) {
         damage_type: "${item.damage_type}",
         range_normal: ${item.range_normal},
         range_long: ${item.range_long},
-        properties: ["${properties}"]
+        properties: "${item.properties}"
       })
     }
   `;
