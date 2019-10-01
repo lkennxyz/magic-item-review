@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import Item from '@components/Item';
 import '@styles/ItemList.css';
 
-function ItemList({ items, itemSelect, setReviewList, setCompletedList }) {
+function ItemList({ items, setItemList}) {
 
   useEffect(() => {
-    setReviewList();
-    setCompletedList();
+    setItemList();
   }, [])
 
   return (
@@ -17,7 +16,6 @@ function ItemList({ items, itemSelect, setReviewList, setCompletedList }) {
             <Item
               key = { item._id }
               description = { item.description }
-              onClick = {() => itemSelect(item)}
             />
           )
         }
