@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Item({ description, onClick }) {
+function Item({ description }) {
   return (
     <div className="Item">
-      <li
-        onClick={onClick}
-      >{ description }</li>
+      <li>
+        { description }
+      </li>
     </div>
   );
 }
